@@ -18,18 +18,69 @@ const faqData = [
   },
 ];
 
-const accordianBody;
+
 const faqs = [];
+let all_para = document.querySelectorAll(".hidden");
+let btns = document.querySelectorAll(".show_btn");
+btns.forEach((item)=>{
+
+item.addEventListener("click",showFaq)
+})
+
+
 
 function showFaq() {
-  
+
+  let answer_p = document.getElementById("hidden-"+this.id);
+
+  faqData.forEach((data)=>{
+
+  if(data.id==this.id)
+  {
+
+    answer_p.innerHTML= data.answer;
+
+    btnStatusUpdate(answer_p)
+  }
+})
+
+
 }
+
+
 
 function createFaq() {
-  
+
+
+
+
+
+
 }
 
-function btnStatusUpdate() {
+function btnStatusUpdate(answer_p) {
+  if(answer_p.style.display =="none" || answer_p.style.display =="")
+  {
+    console.log(1)
+    answer_p.style.display = "inline-block";
+    all_para.forEach((para)=>{
+
+     if(para.id!=answer_p.id){
+
+      para.style.display = "none"
+
+     }
+
+    })
+
+
+  }
+  else{
+
+    answer_p.style.display = "none"
+  }
+
+
   
 }
 

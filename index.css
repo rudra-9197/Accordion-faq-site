@@ -51,5 +51,6 @@
 }
 
 .hidden {
-  display: none;
+ color: white;
+ font-size: medium;
 }
